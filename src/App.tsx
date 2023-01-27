@@ -1,8 +1,10 @@
+import { Button, Stack, Typography } from '@mui/material'
+
 const App = () => {
   return (
-    <div>
-      App
-    </div>
+    <Stack display='block' spacing={20} direction={'row'}>
+      <Typography component={'p'} sx={{color: 'blue'}}>Test</Typography>
+    </Stack>
   );
 }
 
