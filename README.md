@@ -7,3 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Install steps in the project:
 
 ### `npx create-react-app my-app --template redux-typescript`
+
+### `npm i react-router-dom`
+
+### `npm install @mui/material @emotion/react @emotion/styled`
