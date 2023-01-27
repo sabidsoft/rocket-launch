@@ -1,10 +1,17 @@
-import { Button, Stack, Typography } from '@mui/material'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AllLaunches from "./pages/AllLaunches";
+import Home from "./pages/Home";
+import SingleLaunch from "./pages/SingleLaunch";
 
 const App = () => {
   return (
-    <Stack display='block' spacing={20} direction={'row'}>
-      <Typography component={'p'} sx={{color: 'blue'}}>Test</Typography>
-    </Stack>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/launches" element={<AllLaunches />} />
+        <Route path="/launches/:id" element={<SingleLaunch />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,7 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { launchesApi } from '../services/launchesApi';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [launchesApi.reducerPath]: launchesApi.reducer
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(launchesApi.middleware)
 });
 
 export type AppDispatch = typeof store.dispatch;
