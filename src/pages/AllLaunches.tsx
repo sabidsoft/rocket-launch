@@ -3,20 +3,13 @@ import Grid from "@mui/material/Grid";
 import Typography from '@mui/material/Typography';
 import LaunchInfoCard from "../components/LaunchInfoCard";
 import { useGetAllLaunchesQuery } from "../services/launchesApi";
-import Box from "@mui/material/Box";
-import CircularProgress from "@mui/material/CircularProgress";
+import Spinner from "../components/Spinner";
 
 const AllLaunches = () => {
-    const { data, isLoading, isSuccess } = useGetAllLaunchesQuery()
+    const { data, isLoading, isSuccess } = useGetAllLaunchesQuery();
     console.log(data)
 
-    if (isLoading) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-                <CircularProgress />
-            </Box>
-        )
-    }
+    if (isLoading) return <Spinner />
 
     return (
         <Container sx={{ py: '60px' }}>

@@ -15,3 +15,5 @@ Install steps in the project:
 ### `npm install @mui/icons-material`
 
 ### `npm install date-fns --save`
+
+### `npm install react-player`

@@ -17,7 +17,7 @@ const LaunchInfoCard = (props: LaunchInfoCardProps) => {
     const { rocket_name, rocket_type } = rocket
 
     // date and time formatting
-    const formatedLaunchDate = format(Date.parse(launch_date_local), 'd MMMM yyyy')
+    const formatedLaunchDate = format(parseISO(launch_date_local), 'd MMMM yyyy')
 
     return (
         <Card>
@@ -78,7 +78,7 @@ const LaunchInfoCard = (props: LaunchInfoCardProps) => {
                 marginRight='8px'
             >
                 <CardActions>
-                    <Link to={`/launches/${flight_number}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/launches/${flight_number}`} style={{ textDecoration: 'none' }} state={props.launch}>
                         <Button size='medium'>View More Details</Button>
                     </Link>
                 </CardActions>
