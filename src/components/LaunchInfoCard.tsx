@@ -7,7 +7,8 @@ import Typography from '@mui/material/Typography';
 import { LaunchInfoCardProps } from '../types/types';
 import { format, parseISO } from 'date-fns'
 import { Box } from '@mui/material';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Info from './Info';
 
 const LaunchInfoCard = (props: LaunchInfoCardProps) => {
     // object destructuring
@@ -39,38 +40,22 @@ const LaunchInfoCard = (props: LaunchInfoCardProps) => {
                 />
             </Box>
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div" marginBottom='20px'>
-                    {`Mission ${mission_name}`}
-                </Typography>
+                <Info keyPoint='Mission Name' value={mission_name} />
                 {
                     upcoming ? (
-                        <Typography component='p' variant='body2' gutterBottom>
-                            <Typography component='span' variant='body2' fontWeight='bold'>Launch Status: </Typography>
-                            Upcoming
-                        </Typography>
+                        <Info keyPoint='Launch Status' value='Upcoming' />
                     ) : (
-                        <Typography component='p' variant='body2' gutterBottom>
-                            <Typography component='span' variant='body2' fontWeight='bold'>Launch Status : </Typography>
-                            {launch_success ? 'Success' : 'Failure'}
-                        </Typography>
+                        launch_success ? (
+                            <Info keyPoint='Launch Status' value='Success' />
+                        ) : (
+                            <Info keyPoint='Launch Status' value='Failure' />
+                        )
                     )
                 }
-                <Typography component='p' variant='body2' gutterBottom>
-                    <Typography component='span' variant='body2' fontWeight='bold'>Rocket Name: </Typography>
-                    {rocket_name}
-                </Typography>
-                <Typography component='p' variant='body2' gutterBottom>
-                    <Typography component='span' variant='body2' fontWeight='bold'>Rocket Type: </Typography>
-                    {rocket_type}
-                </Typography>
-                <Typography component='p' variant='body2' gutterBottom>
-                    <Typography component='span' variant='body2' fontWeight='bold'>Launch Site Name: </Typography>
-                    {site_name}
-                </Typography>
-                <Typography component='p' variant='body2' gutterBottom>
-                    <Typography component='span' variant='body2' fontWeight='bold'>Launch Date: </Typography>
-                    {`${formatedLaunchDate} (local)`}
-                </Typography>
+                <Info keyPoint='Rocket name' value={rocket_name} />
+                <Info keyPoint='Rocket type' value={rocket_type} />
+                <Info keyPoint='Launch Site Name' value={site_name} />
+                <Info keyPoint='Launch date' value={`${formatedLaunchDate} (local)`} />
             </CardContent >
             <Box
                 display='flex'

@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
 import ReactPlayer from 'react-player/youtube';
+import Info from '../components/Info';
+import { Link } from 'react-router-dom'
 
 
 const SingleLaunch = () => {
@@ -21,7 +23,7 @@ const SingleLaunch = () => {
     } = location.state
 
     const { site_id, site_name_long, } = launch_site
-    const { mission_patch, video_link } = links
+    const { mission_patch, video_link, wikipedia } = links
     const { rocket_name, rocket_type } = rocket
 
     // date and time formatting
@@ -46,62 +48,53 @@ const SingleLaunch = () => {
                     }}
                 />
             </Box>
-            <Typography variant="h3" paddingTop='60px' paddingBottom='60px' textAlign='center'>{`Mission ${mission_name}`}</Typography>
+            <Typography
+                variant="h3"
+                paddingTop='60px'
+                paddingBottom='60px'
+                textAlign='center'
+            >
+                {`Mission ${mission_name}`}
+            </Typography>
             <Container>
                 <Box sx={{ width: '56%', mx: 'auto' }}>
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Mission name: </Typography>
-                        {mission_name}
-                    </Typography>
-                    {
-                        details && (
-                            <Typography component='p' variant='body2' gutterBottom>
-                                <Typography component='span' variant='body2' fontWeight='bold'>Mission Details: </Typography>
-                                {details}.
-                            </Typography>
-                        )
-                    }
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Launch Site: </Typography>
-                        {site_name_long}.
-                    </Typography>
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Launch Site ID: </Typography>
-                        {site_id}
-                    </Typography>
+                    <Info keyPoint='Mission Name' value={mission_name} />
+                    {details && <Info keyPoint='Mission Details' value={details} />}
+                    <Info keyPoint='Launch Site' value={site_name_long} />
+                    <Info keyPoint='Launch Site ID' value={site_id} />
                     {
                         upcoming ? (
-                            <Typography component='p' variant='body2' gutterBottom>
-                                <Typography component='span' variant='body2' fontWeight='bold'>Launch Status: </Typography>
-                                Upcoming
-                            </Typography>
+                            <Info keyPoint='Launch Status' value='Upcoming' />
                         ) : (
-                            <Typography component='p' variant='body2' gutterBottom>
-                                <Typography component='span' variant='body2' fontWeight='bold'>Launch Status : </Typography>
-                                {launch_success ? 'Success' : 'Failure'}
-                            </Typography>
+                            launch_success ? (
+                                <Info keyPoint='Launch Status' value='Success' />
+                            ) : (
+                                <Info keyPoint='Launch Status' value='Failure' />
+                            )
                         )
                     }
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Rocket Name: </Typography>
-                        {rocket_name}
-                    </Typography>
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Rocket Type: </Typography>
-                        {rocket_type}
-                    </Typography>
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Launch Date: </Typography>
-                        {`${formatedLaunchDate} (local)`}
-                    </Typography>
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Launch Time: </Typography>
-                        {`${formatedLaunchTime} (local)`}
-                    </Typography>
-                    <Typography component='p' variant='body2' gutterBottom>
-                        <Typography component='span' variant='body2' fontWeight='bold'>Is It Upcoming?: </Typography>
-                        {upcoming ? 'Yes' : 'No'}
-                    </Typography>
+                    <Info keyPoint='Rocket name' value={rocket_name} />
+                    <Info keyPoint='Rocket type' value={rocket_type} />
+                    <Info keyPoint='Launch date' value={formatedLaunchDate} />
+                    <Info keyPoint='Launch time' value={formatedLaunchTime} />
+                    {wikipedia &&
+                        <Info
+                            keyPoint='Wikipedia link'
+                            value={
+                                <Link
+                                    to={wikipedia}
+                                    target='_blank'
+                                    style={{
+                                        color: '#0049C0',
+                                        marginRight: '16px',
+                                        textDecoration: 'none'
+                                    }}
+                                >
+                                    Wikipedia
+                                </Link>
+                            }
+                        />
+                    }
                 </Box>
                 {
                     video_link && (
