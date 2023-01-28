@@ -3,7 +3,12 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const Spinner = () => {
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Box
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
+            height='100vh'
+        >
             <CircularProgress disableShrink />
         </Box>
     );

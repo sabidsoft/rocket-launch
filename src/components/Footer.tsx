@@ -7,7 +7,6 @@ const Footer = () => {
             textAlign='center'
             pt='32px'
             pb='24px'
-            
         >
             &copy; 2023 | All rights reserved by Rocket Launch
         </Typography>

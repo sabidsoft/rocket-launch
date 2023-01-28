@@ -11,12 +11,8 @@ const ErrorPage = () => {
             flexDirection='column'
             mt='-70px'
         >
-            <Typography variant='h1'>
-                404
-            </Typography>
-            <Typography variant='h2'>
-                Page Not Found!
-            </Typography>
+            <Typography variant='h1'>404</Typography>
+            <Typography variant='h2'>Page Not Found!</Typography>
         </Box>
     );
 };

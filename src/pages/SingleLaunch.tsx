@@ -8,7 +8,6 @@ import ReactPlayer from 'react-player/youtube';
 import Info from '../components/Info';
 import { Link } from 'react-router-dom';
 
-
 const SingleLaunch = () => {
     const location = useLocation();
     const {
@@ -22,6 +21,7 @@ const SingleLaunch = () => {
         details,
     } = location.state;
 
+    // objeject destructing
     const { site_id, site_name_long, } = launch_site;
     const { mission_patch, video_link, wikipedia } = links;
     const { rocket_name, rocket_type } = rocket;
@@ -104,7 +104,6 @@ const SingleLaunch = () => {
                     )
                 }
             </Container>
-
         </Box>
     );
 };
