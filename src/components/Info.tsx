@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 interface InfoProps {
     keyPoint: string,
     value: string | React.ReactNode
-} 
+};
 
 const Info = ({ keyPoint, value }: InfoProps) => {
     return (

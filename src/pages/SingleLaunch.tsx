@@ -1,16 +1,16 @@
 import { useLocation } from 'react-router-dom';
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from 'date-fns';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
 import ReactPlayer from 'react-player/youtube';
 import Info from '../components/Info';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 const SingleLaunch = () => {
-    const location = useLocation()
+    const location = useLocation();
     const {
         launch_success,
         launch_date_local,
@@ -20,15 +20,15 @@ const SingleLaunch = () => {
         links,
         launch_site,
         details,
-    } = location.state
+    } = location.state;
 
-    const { site_id, site_name_long, } = launch_site
-    const { mission_patch, video_link, wikipedia } = links
-    const { rocket_name, rocket_type } = rocket
+    const { site_id, site_name_long, } = launch_site;
+    const { mission_patch, video_link, wikipedia } = links;
+    const { rocket_name, rocket_type } = rocket;
 
     // date and time formatting
-    const formatedLaunchDate = format(parseISO(launch_date_local), 'd MMMM yyyy')
-    const formatedLaunchTime = format(parseISO(launch_date_local), 'hh:mm:ss a')
+    const formatedLaunchDate = format(parseISO(launch_date_local), 'd MMMM yyyy');
+    const formatedLaunchTime = format(parseISO(launch_date_local), 'hh:mm:ss a');
 
     return (
         <Box>

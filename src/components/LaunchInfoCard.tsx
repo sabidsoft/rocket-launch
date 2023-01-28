@@ -3,22 +3,21 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import { LaunchInfoCardProps } from '../types/types';
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from 'date-fns';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Info from './Info';
 
 const LaunchInfoCard = (props: LaunchInfoCardProps) => {
     // object destructuring
-    const { launch_success, launch_date_local, mission_name, flight_number, upcoming, rocket, links, launch_site } = props.launch
-    const { site_name } = launch_site
-    const { mission_patch_small } = links
-    const { rocket_name, rocket_type } = rocket
+    const { launch_success, launch_date_local, mission_name, flight_number, upcoming, rocket, links, launch_site } = props.launch;
+    const { site_name } = launch_site;
+    const { mission_patch_small } = links;
+    const { rocket_name, rocket_type } = rocket;
 
     // date and time formatting
-    const formatedLaunchDate = format(parseISO(launch_date_local), 'd MMMM yyyy')
+    const formatedLaunchDate = format(parseISO(launch_date_local), 'd MMMM yyyy');
 
     return (
         <Card>

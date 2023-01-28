@@ -7,14 +7,13 @@ import Spinner from "../components/Spinner";
 
 const AllLaunches = () => {
     const { data, isLoading, isSuccess } = useGetAllLaunchesQuery();
-    console.log(data)
 
-    if (isLoading) return <Spinner />
+    if (isLoading) return <Spinner />;
 
     return (
         <Container sx={{ py: '60px' }}>
-            <Typography variant="h3" paddingBottom='60px' textAlign='center'>All Rocket Launches</Typography>
-            <Grid container columnSpacing={2.5} rowSpacing={5}>
+            <Typography variant="h3" pb='60px' textAlign='center'>All Rocket Launches</Typography>
+            <Grid container columnSpacing={3} rowSpacing={5}>
                 {isSuccess && data.map((launch, i) => {
                     return (
                         <Grid key={i} item xs={12} sm={6} md={4}>

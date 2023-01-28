@@ -28,7 +28,7 @@ export interface RocketLaunches {
         video_link: string,
         wikipedia: string,
     }
-}
+};
 
 export interface LaunchInfoCardProps {
     launch: {
@@ -62,4 +62,4 @@ export interface LaunchInfoCardProps {
             wikipedia: string,
         }
     }
-}
+};
