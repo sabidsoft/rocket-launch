@@ -7,7 +7,12 @@ export interface RocketLaunches {
     launch_date_unix: number,
     launch_success: boolean,
     launch_year: string,
-    upcoming: boolean
+    upcoming: boolean,
+    launch_site: {
+        site_id: string,
+        site_name: string,
+        site_name_long: string,
+    },
     launch_failure_details: {
         time: number,
         reason: string
@@ -25,8 +30,8 @@ export interface RocketLaunches {
     }
 }
 
-export interface RocketCardProps {
-    rocket: {
+export interface LaunchInfoCardProps {
+    launch: {
         mission_name: string,
         flight_number: number,
         details: string,
@@ -35,7 +40,12 @@ export interface RocketCardProps {
         launch_date_unix: number,
         launch_success: boolean,
         launch_year: string,
-        upcoming: boolean
+        upcoming: boolean,
+        launch_site: {
+            site_id: string,
+            site_name: string,
+            site_name_long: string,
+        },
         launch_failure_details: {
             time: number,
             reason: string
